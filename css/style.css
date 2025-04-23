@@ -342,6 +342,14 @@ button {
     width: auto;
     padding-left: 5%;
 }
+@media (max-width: 768px) {
+    .logo {
+      height: 30px;
+    }
+    .brand-text {
+      font-size: 14px;
+    }
+  }
 
 .ml-auto,
 .mx-auto {
