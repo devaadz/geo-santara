@@ -24,7 +24,7 @@
 @import url(icomoon.css);
 @import url(css/font-awesome.min.css);
 @import url(meanmenu.css);
-@import url(owl.carousel.min.css);
+/* @import url(owl.carousel.min.css); */
 @import url(swiper.min.css);
 @import url(slick.css);
 @import url(jquery.fancybox.min.css);
@@ -1584,5 +1584,81 @@ textarea#comment.massage-bt::placeholder {
     background-color: #0069d9; /* Hover lebih gelap */
   }
 
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    width: max-content;
+  }
+
+  .marquee-container.left .marquee-track {
+    animation: marquee-left 30s linear infinite;
+  }
+
+  .marquee-container.right .marquee-track {
+    animation: marquee-right 30s linear infinite;
+  }
+
+  .custom-logo-item {
+    flex: 0 0 auto;
+    padding: 0 30px;
+  }
+
+  .custom-logo-img {
+    height: 90px;
+    object-fit: contain;
+    display: block;
+  }
+
+  @keyframes marquee-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+
   
+  .custom-container-up {
+    text-align: center; /* Teks di tengah */
+    padding-top: 60px; /* Padding atas dan bawah */
+    border-radius: 8px; /* Sudut melengkung pada kontainer */
+  }
   
+  /* Gaya untuk judul pada custom-container-up */
+  .custom-container-up h2 {
+    font-family: 'Arial', sans-serif; /* Menggunakan font Arial */
+    font-size: 28px; /* Ukuran font */
+    font-weight: bold; /* Membuat font tebal */
+    color: #333; /* Warna teks */
+    margin-bottom: 30px; /* Jarak bawah judul */
+    letter-spacing: 1px; /* Memberikan jarak antar huruf */
+    text-transform: uppercase; /* Membuat semua huruf jadi kapital */
+    transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
+  }
+  
+  .custom-container-down {
+    text-align: center; /* Teks di tengah */
+    padding-bottom: 60px; /* Padding atas dan bawah */
+    border-radius: 8px; /* Sudut melengkung pada kontainer */
+  }
+  
+  /* Gaya untuk judul pada custom-container-down */
+  .custom-container-down h2 {
+    font-family: 'Arial', sans-serif; /* Menggunakan font Arial */
+    font-size: 28px; /* Ukuran font */
+    font-weight: bold; /* Membuat font tebal */
+    color: #333; /* Warna teks */
+    margin-bottom: 30px; /* Jarak bawah judul */
+    letter-spacing: 1px; /* Memberikan jarak antar huruf */
+    text-transform: uppercase; /* Membuat semua huruf jadi kapital */
+    transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
+  }
