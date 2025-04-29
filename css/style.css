@@ -1486,7 +1486,7 @@ textarea#comment.massage-bt::placeholder {
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Default: 5 kolom (desktop) */
+    grid-template-columns: repeat(3, 1fr); /* Default: 5 kolom (desktop) */
     gap: 10px;
     max-width: 1200px;
     margin: 40px auto;
@@ -1583,3 +1583,6 @@ textarea#comment.massage-bt::placeholder {
   .email-button:hover {
     background-color: #0069d9; /* Hover lebih gelap */
   }
+
+  
+  
