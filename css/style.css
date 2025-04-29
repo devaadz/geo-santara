@@ -315,20 +315,27 @@ button {
 } */
 .header_section {
     width: 100%;
-    min-height: 90vh; /* Default tinggi layar */
-    background-image: url(https://geosantara.com/userfiles/uploads/banner-website-1.jpg);
+    min-height: 90vh; /* Default untuk desktop */
+    background-image: url('../images/banner-bg-website.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Mobile: lebih pendek */
+/* Tablet dan HP besar */
 @media (max-width: 768px) {
     .header_section {
         min-height: 100vh; 
     }
 }
 
+/* HP kecil (di bawah 480px) */
+@media (max-width: 480px) {
+    .header_section {
+        min-height: 70vh; /* Lebih tinggi supaya konten nggak ketumpuk */
+        background-position: top; /* Opsional, kalau mau gambarnya lebih fokus ke atas */
+    }
+}
 
 .header_bg {
     background: #1f1f1f;
