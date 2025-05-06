@@ -1728,4 +1728,26 @@ textarea#comment.massage-bt::placeholder {
        padding-top: 10px;
     }
  }
- 
+ .carousel-custom-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .carousel-circle-btn {
+    background-color: #000; /* Warna hitam */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .carousel-circle-btn:hover {
+    background-color: #444;
+  }
+  
