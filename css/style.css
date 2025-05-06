@@ -1663,8 +1663,6 @@ textarea#comment.massage-bt::placeholder {
     text-transform: uppercase; /* Membuat semua huruf jadi kapital */
     transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
   }
-
-
-  .add-padding{
-    padding-top: 15px;
+.add-padding-top{
+    padding-top: 15px !important;
 }
