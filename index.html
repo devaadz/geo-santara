@@ -228,17 +228,30 @@
                <div class="add-padding-top col-md-6">
                   <div class="card-image-yt-thumbnail">
                      <img 
+                        id="thumbnail" 
                         src="https://img.youtube.com/vi/a3R2GO-9wTc/maxresdefault.jpg" 
                         onerror="this.src='https://img.youtube.com/vi/a3R2GO-9wTc/hqdefault.jpg'"
                         alt="Thumbnail Video"
                         loading="lazy"
-                        >
-                      
-                      <!-- Ikon tombol play -->
-                      <a href="#" class="play-button" onclick="playVideo(event)">
-                          <img src="images/play-icon.png" alt="Play Icon">
-                      </a>
+                     >
+                     
+                     <!-- Ikon tombol play -->
+                     <a href="#" class="play-button" onclick="playVideo(event)">
+                        <img src="images/play-icon.png" alt="Play Icon">
+                     </a>
+               
+                     <!-- Video container yang hanya tampil saat play diklik -->
+                     <div id="videoContainer">
+                        <iframe 
+                           id="videoPlayer" 
+                           frameborder="0" 
+                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                           allowfullscreen>
+                        </iframe>
+                     </div>
                   </div>
+               </div>
+               
               
                   <!-- Video tersembunyi dulu -->
                   <div class="video-container" id="videoContainer" style="display: none;">
@@ -561,7 +574,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdi JJigb/j/68SIy3Te4Bkz" 
             crossorigin="anonymous"></script>
-      <script src="js/plugin.js"></script>
+      <!-- <script src="js/plugin.js"></script> -->
       <script src="js/yt.js"></script>
       
       <script>

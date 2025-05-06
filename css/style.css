@@ -1667,3 +1667,65 @@ textarea#comment.massage-bt::placeholder {
     text-transform: uppercase; /* Membuat semua huruf jadi kapital */
     transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
   }
+  /* Default styling untuk gambar thumbnail */
+.card-image-yt-thumbnail {
+    position: relative;
+    width: 100%;
+    max-width: 100%;  /* Pastikan thumbnail tidak lebih besar dari kontainer */
+    height: auto;
+ }
+ 
+ /* Gambar thumbnail responsif */
+ #thumbnail {
+    width: 100%;
+    height: auto;
+ }
+ 
+ /* Video container yang hanya muncul setelah tombol play diklik */
+ #videoContainer {
+    display: none;
+    position: relative;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 untuk video */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+ }
+ 
+ #videoPlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+ }
+ 
+ /* Tombol play */
+ .play-button img {
+    width: 50px;  /* Ukuran tombol play */
+    height: 50px;
+ }
+ 
+ /* Penyesuaian untuk layar kecil */
+ @media (max-width: 576px) {
+    .play-button img {
+       width: 40px; /* Tombol play lebih kecil di layar mobile */
+       height: 40px;
+    }
+ 
+    /* Ukuran gambar thumbnail lebih responsif di mobile */
+    #thumbnail {
+       max-width: 100%;
+       height: auto;
+    }
+ 
+    /* Video container lebih responsif di mobile */
+    #videoContainer {
+       padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    }
+ 
+    /* Mengatur posisi container di mobile */
+    .add-padding-top {
+       padding-top: 10px;
+    }
+ }
+ 
