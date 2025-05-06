@@ -1652,6 +1652,10 @@ textarea#comment.massage-bt::placeholder {
     border-radius: 8px; /* Sudut melengkung pada kontainer */
   }
   
+.add-padding-top{
+    padding-top: 15px !important;
+}
+  
   /* Gaya untuk judul pada custom-container-down */
   .custom-container-down h2 {
     font-family: 'Arial', sans-serif; /* Menggunakan font Arial */
@@ -1663,6 +1667,3 @@ textarea#comment.massage-bt::placeholder {
     text-transform: uppercase; /* Membuat semua huruf jadi kapital */
     transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
   }
-.add-padding-top{
-    padding-top: 15px !important;
-}
