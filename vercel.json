@@ -35,9 +35,8 @@
       "use": "@vercel/static"
     },
     {
-      "src": "images/*",
+      "src": "images/**",
       "use": "@vercel/static"
     }
-    
   ]
 }
