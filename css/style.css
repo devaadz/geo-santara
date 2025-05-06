@@ -325,7 +325,7 @@ button {
 /* Tablet dan HP besar */
 @media (max-width: 768px) {
     .header_section {
-        min-height: 100vh; 
+        min-height:75vh; 
         background-image: url('../images/banner-bg-website-mobile.jpeg');
     }
 }
@@ -333,7 +333,7 @@ button {
 /* HP kecil (di bawah 480px) */
 @media (max-width: 480px) {
     .header_section {
-        min-height: 70vh; /* Lebih tinggi supaya konten nggak ketumpuk */
+        min-height: 60vh; /* Lebih tinggi supaya konten nggak ketumpuk */
         background-position: top; /* Opsional, kalau mau gambarnya lebih fokus ke atas */
         background-image: url('../images/banner-bg-website-mobile.jpeg');
     }
