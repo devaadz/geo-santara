@@ -315,8 +315,8 @@ button {
 } */
 .header_section {
     width: 100%;
-    min-height: 90vh; /* Default untuk desktop */
-    background-image: url('../images/banner-bg-website.jpg');
+    min-height: 90vh; /* Default desktop */
+    background-image: url('../images/banner_website_HD.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -325,19 +325,26 @@ button {
 /* Tablet dan HP besar */
 @media (max-width: 768px) {
     .header_section {
-        min-height:75vh; 
-        background-image: url('../images/banner-bg-website-mobile.jpeg');
+        /* min-height: 75vh; */
+        background-image: url('../images/banner_website_mobile_540_960.webp');
+        background-size: cover;         /* Tambahkan ini */
+        background-position: center;    /* Tambahkan ini */
     }
 }
 
 /* HP kecil (di bawah 480px) */
 @media (max-width: 480px) {
     .header_section {
-        min-height: 60vh; /* Lebih tinggi supaya konten nggak ketumpuk */
-        background-position: top; /* Opsional, kalau mau gambarnya lebih fokus ke atas */
-        background-image: url('../images/banner-bg-website-mobile.jpeg');
+        /* min-height: 70vh; */
+        background-image: url('../images/banner_website_mobile_540_960.webp');
+        background-size: cover;
+        background-position: center center; /* Fokus tengah */
+        /* Atau coba: */
+        background-position: 50% 40%; /* Atur manual pakai persen */
     }
-}
+}s
+
+
 
 .header_bg {
     background: #1f1f1f;
@@ -1751,3 +1758,74 @@ textarea#comment.massage-bt::placeholder {
     background-color: #444;
   }
   
+
+  
+  .form-wrapper-round {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+ }
+
+ .mail_section_1-round {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+ }
+
+ .mail_text-round,
+ .massage-bt-round {
+    padding: 14px 18px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+ }
+
+ .mail_text-round:focus,
+ .massage-bt-round:focus {
+    border-color: #007bff;
+ }
+
+ .massage-bt-round {
+    resize: vertical;
+    min-height: 120px;
+ }
+
+ .email-button-round {
+    background-color: #007bff;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    transition: background-color 0.3s;
+ }
+
+ .email-button-round:hover {
+    background-color: #0056b3;
+ }
+
+ @media (max-width: 600px) {
+    .form-wrapper-round {
+       padding: 15px;
+       margin: 20px;
+    }
+
+    .email-button-round {
+       font-size: 15px;
+       padding: 12px;
+    }
+ }  
