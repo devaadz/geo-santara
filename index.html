@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      
-      <!-- site metas -->
+      <!-- basic meta tags -->
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>GEO SANTARA INDO</title>
-      <meta name="keywords" content="pemetaan, survei geospasial, GIS, Indonesia">
-      <meta name="description" content="GEO SANTARA INDO adalah perusahaan pengeboran yang terpercaya>
-      <meta name="author" content="Tim GEO SANTARA INDO">
+      <meta name="keywords" content="pemetaan, survei geospasial, GIS, Indonesia" />
+      <meta name="description" content="GEO SANTARA INDO adalah perusahaan pengeboran yang terpercaya" />
+      <meta name="author" content="Tim GEO SANTARA INDO" />
+      <!-- Preload banner image (penting untuk LCP) -->
+      <link rel="preload" as="image" href="images/banner_website_HD.webp" type="image/webp">
+      <link rel="preload" as="image" href="images/banner_website_mobile_540_960.webp" type="image/webp">
       
-      <!-- bootstrap css (pilih salah satu) -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
-      <!-- ATAU -->
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      
-      <!-- custom css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="stylesheet" href="css/responsive.css">
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      
-      <!-- favicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif">
-      <link rel="preload" as="image" href="images/banner-bg-website.jpg" />
+      <!-- Preload penting CSS (opsional bisa inline style.css jika kecil) -->
+      <link rel="preload" href="css/style.css" as="style">
+      <link rel="stylesheet" href="css/style.css" />
 
-      <!-- font awesome & fonts -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
-      
-      <!-- scripts -->
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"></script>
-   </head>
+      <!-- Preload Font Awesome hanya jika digunakan di atas fold -->
+      <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+      <!-- Google Fonts dengan display swap (agar tidak menunggu font untuk render teks) -->
+      <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlEA.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+
+      <!-- Bootstrap (lebih baik di bawah jika bukan komponen atas fold) -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
+
+    </head>
+    
    <body>
       <!-- header section start -->
       <header class="header_section">
+         <picture>
+            <source media="(min-width: 769px)" srcset="images/banner_website_HD.webp" />
+            <source media="(max-width: 768px)" srcset="images/banner_website_mobile_540_960.webp" />
+            <img src="images/banner_website_mobile_540_960.webp" alt="Banner" class="header_bg lcp-img"  
+            fetchpriority="high" />
+          </picture>
+
+     
             <div class="container-fluid container-fluid-navbar">
                <nav class="navbar navbar-expand-lg align-items-center">
                   <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -74,7 +78,7 @@
                   <div class="col-sm-12">
                      <div class="banner_taital_main">
                         <h2 class="banner_taital">Jasa Pengeboran Tanah</h2>
-                        <p class="banner_text">
+                        <p class="banner_text preload-visible">
                            Didukung Pengalaman Lebih dari 3.000+ Proyek Terselesaikan. Solusi Sumber Air Bersih Terintegrasi dengan Teknologi Mutakhir. Tim ahli kami menyediakan layanan pengeboran air dalam berpengalaman.
                         </p>
                         <div class="btn_main">
@@ -368,17 +372,27 @@
                <div class="row">
                   <div class="col-md-6">
                      <div class="form-wrapper-round">
-                        <form id="contactForm" action="send_email.php" method="POST" onsubmit="return validateForm()">
+                        <form id="contactForm" novalidate action="https://formspree.io/f/xyzwakbj" method="POST" onsubmit="return validateForm()">
                            <div class="mail_section_1-round">
-                              <input type="text" class="mail_text-round" placeholder="Name" name="name">
-                              <input type="text" class="mail_text-round" placeholder="Phone Number" name="phone_number"> 
-                              <input type="text" class="mail_text-round" placeholder="Email" name="email">
-                              <textarea class="massage-bt-round" placeholder="Message" rows="5" id="comment" name="message"></textarea>
-                              <button class="email-button-round" type="submit">
-                                 <i class="fa-solid fa-envelope"></i> Kirim Email
-                              </button> 
+                             <input id="name" name="name" type="text" class="mail_text-round" placeholder="Name" />
+                             <div id="nameError" style="color:red; font-size:0.9em;"></div>
+                         
+                             <input id="phone_number" name="phone_number" type="text" class="mail_text-round" placeholder="Phone Number" />
+                         
+                             <input id="email" name="email" type="email" class="mail_text-round" placeholder="Email" />
+                             <div id="emailError" style="color:red; font-size:0.9em;"></div>
+                         
+                             <textarea id="message" name="message" class="massage-bt-round" placeholder="Message" rows="5"></textarea>
+                             <div id="messageError" style="color:red; font-size:0.9em;"></div>
+                         
+                             <button class="email-button-round" type="submit">
+                               <i class="fa-solid fa-envelope"></i> Kirim Email
+                             </button> 
                            </div>
                         </form>
+                         
+                         <div id="status_form" style="margin-top:10px; color:green;"></div>
+                         
                      </div>
                   </div>
                   <div class="col-md-6 padding_left_15">
@@ -413,14 +427,14 @@
               
               <!-- Kolom Tengah: Tergabung & Sosial Media -->
               <div class="col-md-4 ">
-                <h5 class="pt-3 text-white-color">Tergabung Dalam:</h5>
+                <h5 class="pt-3 text-white-color">Tergabung dan Terdaftar Dalam:</h5>
                 <div class="d-flex align-items-start mb-3">
                   <div class="me-2 d-flex align-items-center">
                      <img src="images/logo appatindo.png" alt="Users Icon" class="img-fluid" style="max-width: 45px; height: auto;">
                    </div>
                    
                   <div>
-                    <h5 >APPATINDO</h5>
+                    <h5 style="margin-bottom : 0; padding: 0;">APPATINDO</h5>
                     <small>(Asosiasi Perusahaan Pengeboran Air Tanah Indonesia)</small>
                   </div>
                 </div>
@@ -429,8 +443,17 @@
                      <img src="images/logo_askonas.png" alt="Users Icon" class="img-fluid" style="max-width: 45px; height: auto;">
                    </div>
                   <div>
-                    <h5>ASKONAS</h5>
+                    <h5 style="margin-bottom : 0; padding: 0;">ASKONAS</h5>
                     <small>(Asosiasi Kontraktor Nasional)</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-start mb-3">
+                  <div class="me-2 d-flex align-items-center">
+                     <img src="images/HKI_icon.webp" alt="Users Icon" class="img-fluid" style="max-width: 45px; height: auto;">
+                   </div>
+                  <div>
+                    <h5 style="margin-bottom : 0; padding: 0;">HAKI</h5>
+                    <small>(Hak Kekayaan Intelektual)</small>
                   </div>
                 </div>
         
@@ -524,55 +547,80 @@
       
       <!-- copyright section end -->
       <!-- Javascript files-->
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdi JJigb/j/68SIy3Te4Bkz" 
-            crossorigin="anonymous"></script>
-      <!-- <script src="js/plugin.js"></script> -->
-      <script src="js/yt.js"></script>
-      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
       <script>
-         function validateForm() {
-            let valid = true;
+         document.querySelectorAll('img').forEach(img => {
+            img.setAttribute('loading', 'lazy');
+            });
+      </script>
+      <!-- <script src="js/plugin.js"></scrip> -->
+      <script src="js/yt.js" defer></script>
+      
+         <script defer>
+            function validateForm() {
+               let valid = true;
 
-            // Reset error messages
-            document.getElementById("nameError").innerText = "";
-            document.getElementById("emailError").innerText = "";
-            document.getElementById("messageError").innerText = "";
+               // Reset pesan error
+               document.getElementById("nameError").innerText = "";
+               document.getElementById("emailError").innerText = "";
+               document.getElementById("phoneError").innerText = "";
+               document.getElementById("messageError").innerText = "";
 
-            // Validate Name
-            const name = document.getElementById("name").value;
-            if (name === "") {
-               document.getElementById("nameError").innerText = "Nama tidak boleh kosong.";
-               valid = false;
-            }  
+               // Ambil nilai input
+               const name = document.getElementById("name").value.trim();
+               const email = document.getElementById("email").value.trim();
+               const phone = document.getElementById("phone_number").value.trim();
+               const message = document.getElementById("message").value.trim();
 
-            // Validate Email
-            const email = document.getElementById("email").value;
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            if (email === "") {
-               document.getElementById("emailError").innerText = "Email tidak boleh kosong.";
-               valid = false;
-            } else if (!emailPattern.test(email)) {
-               document.getElementById("emailError").innerText = "Email tidak valid.";
-               valid = false;
+               // Pola email
+               const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+               // Pola nomor telepon
+               const phonePattern = /^(?:\+62|62|0)[2-9]{1}[0-9]{7,11}$/;
+
+               // Validasi nama
+               if (name === "") {
+                  document.getElementById("nameError").innerText = "Nama tidak boleh kosong.";
+                  valid = false;
+               }
+
+               // Validasi email
+               if (email === "") {
+                  document.getElementById("emailError").innerText = "Email tidak boleh kosong.";
+                  valid = false;
+               } else if (!emailPattern.test(email)) {
+                  document.getElementById("emailError").innerText = "Email tidak valid.";
+                  valid = false;
+               }
+
+               // Validasi nomor telepon
+               if (phone === "") {
+                  document.getElementById("phoneError").innerText = "Nomor telepon tidak boleh kosong.";
+                  valid = false;
+               } else if (!phonePattern.test(phone)) {
+                  document.getElementById("phoneError").innerText = "Nomor telepon tidak valid.";
+                  valid = false;
+               }
+
+               // Validasi pesan
+               if (message === "") {
+                  document.getElementById("messageError").innerText = "Pesan tidak boleh kosong.";
+                  valid = false;
+               }
+
+               // Jika valid, tampilkan status
+               if (valid) {
+                  document.getElementById("status_form").innerText = "Mengirim pesan...";
+               } else {
+                  document.getElementById("status_form").innerText = ""; // Kosongkan jika tidak valid
+               }
+
+               return valid;
             }
-
-            // Validate Message
-            const message = document.getElementById("message").value;
-            if (message === "") {
-               document.getElementById("messageError").innerText = "Pesan tidak boleh kosong.";
-               valid = false;
-            }
-
-            return valid;
-         }
-   </script>
+         </script>
+      
    
-   <script>
+   <script defer>
       const logos1 = [
       { name: "antam", url: "https://geosantara.com/userfiles/images/1500x750-antam-1-e1692726664803-qr8w6b61oyz8s9a2g3u4ea74d5ljg2psws7x8mgyva.jpeg" },
       { name: "beraucoal", url: "https://geosantara.com/userfiles/images/1500x750-beraucoal.jpeg" },
